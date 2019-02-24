@@ -1,0 +1,18 @@
+#cont{
+    margin-top: 100px;
+}
+td{
+    float: left;
+    margin: 6px;
+}
+.td1{
+    color: rgb(235, 137, 46)
+}
+span{
+    color: rgb(235, 177, 124)
+}
+.profiles{
+    border: 1px solid #9C9C9C;
+    background-color: rgb(70, 58, 58);
+    box-shadow: 0px 0px 9px rgb(29, 28, 28);
+}

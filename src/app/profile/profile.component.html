@@ -1,0 +1,60 @@
+  <div id="cont" *ngIf="pro_flag">
+      <div class="container">
+          <h4 style="color: rgb(143, 193, 212)">User Profile</h4>
+          <div class="row text-center">
+                  <div class="col-md-5 profiles">
+                    <img src="/src/assets/profile.png" width="200px;">
+                      <table align=center>
+                          <tr>
+                            <td><b class="td1">Name : </b></td>
+                            <td> <span>{{this.userdetails['result'][0]['name']}}</span></td>
+                          </tr>
+                          <tr>
+                              <td><b class="td1">Email : </b></td>
+                              <td><span>{{this.userdetails['result'][0]['email']}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><b class="td1">Contact :</b> </td>
+                                <td> <span>{{this.userdetails['result'][0]['contact']}}</span></td>
+                              </tr>
+                      </table>
+                      <input type="button" value="Edit Profile" class="btn btn-primary" style="width: 200px;" (click)="funUpdate()"><br><br>
+                </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="cont" *ngIf="pro_edit">
+      <div class="container">
+            <h4 style="color: rgb(143, 193, 212)">Update User Profile</h4>
+          <div class="row text-center">
+                  <div class="col-md-5 profiles">
+                        <img src="/src/assets/profile.png" width="200px;">
+                        <form name="addfrm" #form1='ngForm'>
+                        <table align=center>
+                               
+                            <tr>
+                              <td><b class="td1">Name : </b></td>
+                              <td><input type="text" placeholder="Name" #pname="ngModel" name="name" [(ngModel)]="name"
+                                class="form-control" required></td>
+                            </tr>
+                            <tr>
+                                <td><b class="td1">Email: &nbsp; </b></td>
+                                <td><input type="text" placeholder="email" #pemail="ngModel" name="email" [(ngModel)]="email"
+                                  class="form-control" required></td>
+                              </tr>
+                              <tr>
+                                  <td><b class="td1">Contc :</b></td>
+                                  <td><input type="text" placeholder="Contact" #pcontact="ngModel" name="contact" [(ngModel)]="contact"
+                                    class="form-control" required></td>
+                                </tr>
+                        </table>
+                        <input type="button" value="Save" class="btn btn-success" (click)="updateProfile(form1)">&nbsp;&nbsp;
+                        <input type="button" value="Cencel" class="btn btn-danger" (click)="funCencel(form1)">
+                        <br><br>
+                    </form>
+                </div>
+          </div>
+      </div>
+  </div>
+
