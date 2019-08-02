@@ -21,15 +21,15 @@ export class UserLoginComponent implements OnInit {
   funLogin(formdata){
     if (formdata.valid)
     {
-      var data={email:this.email,password:this.password}
+      var data={Email:this.email,Password:this.password}
       this.service.loginService(data).subscribe(dt=>{
       if(dt['success']==true){
         this.userinfo=dt['result'];
         localStorage.setItem('currentUser',JSON.stringify(this.userinfo));
-        this.rout.navigateByUrl('/home');
+        this.rout.navigateByUrl('/profile');
       }
       else{
-        alert('Wrong Credentials')
+        alert(dt['message'])
       }
     })
     }
@@ -41,5 +41,8 @@ export class UserLoginComponent implements OnInit {
 focus:any;
 focusMethod(){
  this.focus="Plz Enter Valid email"
+}
+gotoReg(){
+  this.rout.navigateByUrl('/register');
 }
 }

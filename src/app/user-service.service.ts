@@ -8,12 +8,18 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
   loginService(data) {
     console.log("Frm service")
-    return this.http.post(URL.postuser,data);
+    return this.http.post(URL.postuser,data)
   }
-  getProfile(id){
-    return this.http.post(URL.get_profile,id);
+  getProfile(){
+    return this.http.get(URL.get_profile)
   }
   update_Profile(id){
     return this.http.post(URL.update_profile,id)
+  }
+  user_register(data){
+    return this.http.post(URL.user_register,data)
+  }
+  user_Remove(data){
+    return this.http.post(URL.user_remove,data)
   }
 }

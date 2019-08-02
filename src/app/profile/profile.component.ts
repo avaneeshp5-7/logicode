@@ -13,8 +13,10 @@ export class ProfileComponent implements OnInit {
   userdetails: any;
   pro_flag:boolean=true;
   pro_edit:boolean=false
-  name:any;
-  email:any;
+  first_name:any;
+  middle_name:any;
+  last_name:any;
+  Email:any;
   contact:any;
   constructor(private service: UserServiceService) { }
 
@@ -23,27 +25,24 @@ export class ProfileComponent implements OnInit {
   }
   getProfile(){
     this.pro_flag=true
-    this.currentuser = localStorage.getItem('currentUser');
-    this.userinfo = JSON.parse(this.currentuser);
-    this.userid = this.userinfo[0]['id'];
-    this.dt = { id: this.userid }
-    this.service.getProfile(this.dt).subscribe(dt => {
-    this.userdetails = dt;
-    console.log(this.userdetails['result'][0]['name']);
+    this.service.getProfile().subscribe(dt => {
+    this.userdetails = dt['result'];
     })
   }
 
-  funUpdate(){
-    this.pro_flag=false
+  funUpdate(data){
     this.pro_edit=true 
-    this.name=this.userdetails['result'][0]['name']
-    this.email=this.userdetails['result'][0]['email']
-    this.contact=this.userdetails['result'][0]['contact']
+    this.first_name=data.first_name
+    this.middle_name=data.middle_name
+    this.last_name=data.last_name
+    this.Email=data.Email
+    this.contact=data.contact,
+    this.userid=data._id
   }
   updateProfile(form1) {
     if (form1.valid)
     {
-    this.service.update_Profile([this.dt,{name:this.name,email:this.email,contact:this.contact}]).subscribe(dt=>{
+    this.service.update_Profile([{_id:this.userid},{first_name:this.first_name,middle_name:this.middle_name,last_name:this.last_name,Email:this.Email,contact:this.contact}]).subscribe(dt=>{
       if(dt['success']==true)
       {
         alert("Update Succefull")
@@ -58,7 +57,12 @@ export class ProfileComponent implements OnInit {
     }
   }
   funCencel(){
-    this.pro_flag=true
     this.pro_edit=false 
+  }
+  funDelete(id){
+    this.service.user_Remove({_id:id}).subscribe(dt=>{
+      alert("Remove Successfully")
+      this.getProfile();
+    })
   }
 }
