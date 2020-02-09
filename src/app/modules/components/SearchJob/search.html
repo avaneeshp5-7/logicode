@@ -1,0 +1,31 @@
+<div class="container contact-form">
+    <div class="contact-image">
+       <h5 class="JobTitle"><b style="border-bottom: 2px solid red;border-top: 2px solid red;border-radius: 4px;">Search Your Best Job's</b></h5>
+    </div>
+    <form method="post">
+       <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <!-- <input type="text" name="txtName" class="form-control shadow-none" placeholder="Technical Skil's *" value="" /> -->
+                <ng-select [items]="user" bindLabel="name" class="shadow-none"   placeholder="Technical Skil's *" [multiple]="true"> </ng-select>
+                </div>  
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" name="txtPhone" class="form-control shadow-none" placeholder="Locations *" value="" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" name="txtPhone" class="form-control shadow-none" placeholder="Experience in Year's *" value="" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="button" class="btn btn-warning shadow-none setBtnSearch" value="Search" />
+                    <!-- <i><fa-icon [icon]="faArrowRight"></fa-icon></i> -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

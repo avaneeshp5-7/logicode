@@ -11,7 +11,7 @@ export class UserServiceService {
     return this.http.post(URL.postuser,data)
   }
   getProfile(){
-    return this.http.get(URL.get_profile)
+    return this.http.get(URL.get_profile).toPromise();
   }
   update_Profile(id){
     return this.http.post(URL.update_profile,id)

@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   }
   getProfile(){
     this.pro_flag=true
-    this.service.getProfile().subscribe(dt => {
+    this.service.getProfile().then(dt => {
     this.userdetails = dt['result'];
     })
   }

@@ -1,70 +1,69 @@
-<div id="cont" *ngIf="pro_flag">
-  <div class="container">
-    <h2 style="text-align: center">User Profile Management</h2>
-    <table class="table tab"> 
-      <thead class="thset">
-        <th>F_Name</th>
-        <th>M_Name</th>
-        <th>L_Name</th>
-        <th>Email</th>
-        <th>Contact</th>
-        <th>Edit / Delete</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of userdetails">
-          <td>{{user.first_name}}</td>
-          <td>{{user.last_name}}</td>
-          <td>{{user.middle_name}}</td>
-          <td>{{user.Email}}</td>
-          <td>{{user.contact}}</td>
-          <td>
-            <button class="btn btn-warning" (click)="funUpdate(user)">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-danger" (click)="funDelete(user._id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div id="cont" *ngIf="pro_flag">
+    <div class="container">
+      <h2 style="text-align: center">User Profile Management</h2>
+      <table class="table tab"> 
+        <thead class="thset">
+          <th>F_Name</th>
+          <th>M_Name</th>
+          <th>L_Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Edit / Delete</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userdetails;let i=index">
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.middle_name}}</td>
+            <td>{{user.Email}}</td>
+            <td>{{user.contact}}</td>
+            <td>
+              <button [disabled]="i%2==0" class="btn btn-warning" (click)="funUpdate(user)">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button [disabled]="i%2==1" class="btn btn-danger" (click)="funDelete(user._id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-
-<div id="cont" *ngIf="pro_edit">
-  <div class="container">
-    <h4 style="color: rgb(143, 193, 212);margin: 10px">Update User Profile</h4>
-    <div class="row text-center">
-      <div class="col-md-5" style="background-color: aliceblue;margin-left: 15px;">
-        <form name="addfrm" #form1='ngForm' style="margin: 50px;">
-          <table align=center>
-
-            <tr>
-              <td><b class="td1">First Name : </b></td>
-              <td><input type="text" class="form-control" placeholder="Name" #fname="ngModel" name="first_name"
-                  [(ngModel)]="first_name" required></td>
-            </tr>
-            <tr>
-              <td><b class="td1">Middle Name: &nbsp; </b></td>
-              <td><input type="text" placeholder="email" #mname="ngModel" name="middle_name" [(ngModel)]="middle_name"
-                  class="form-control" required></td>
-            </tr>
-            <tr>
-              <td><b class="td1">Last Name :</b></td>
-              <td><input type="text" placeholder="Last Name" #lname="ngModel" name="last_name" [(ngModel)]="last_name"
-                  class="form-control" required></td>
-            </tr>
-            <tr>
-              <td><b class="td1">Mobile Number :</b></td>
-              <td><input type="text" placeholder="Contact" #pcontact="ngModel" name="contact" [(ngModel)]="contact"
-                  class="form-control" required></td>
-            </tr>
-            <tr>
-              <td><b class="td1">Email :</b></td>
-              <td><input type="text" placeholder="Email" #pemail="ngModel" name="Email" [(ngModel)]="Email"
-                  class="form-control" required></td>
-            </tr>
-          </table><br>
-          <input type="button" value="Save" class="btn btn-success" (click)="updateProfile(form1)">&nbsp;&nbsp;
-          <input type="reset" value="Clear" class="btn btn-danger">
-        </form>
+<!-- User Update Division -->
+  <div id="cont" *ngIf="pro_edit">
+    <div class="container">
+      <h4 style="color: rgb(143, 193, 212);margin: 10px">Update User Profile</h4>
+      <div class="row text-center">
+        <div class="col-md-5" style="background-color: aliceblue;margin-left: 15px;">
+          <form name="addfrm" #form1='ngForm' style="margin: 50px;">
+            <table align=center>
+              <tr>
+                <td><b class="td1">First Name : </b></td>
+                <td><input type="text" class="form-control" placeholder="Name" #fname="ngModel" name="first_name"
+                    [(ngModel)]="first_name" required></td>
+              </tr>
+              <tr>
+                <td><b class="td1">Middle Name: &nbsp; </b></td>
+                <td><input type="text" placeholder="email" #mname="ngModel" name="middle_name" [(ngModel)]="middle_name"
+                    class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><b class="td1">Last Name :</b></td>
+                <td><input type="text" placeholder="Last Name" #lname="ngModel" name="last_name" [(ngModel)]="last_name"
+                    class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><b class="td1">Mobile Number :</b></td>
+                <td><input type="text" placeholder="Contact" #pcontact="ngModel" name="contact" [(ngModel)]="contact"
+                    class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><b class="td1">Email :</b></td>
+                <td><input type="text" placeholder="Email" #pemail="ngModel" name="Email" [(ngModel)]="Email"
+                    class="form-control" required></td>
+              </tr>
+            </table><br>
+            <input type="button" value="Save" class="btn btn-success" (click)="updateProfile(form1)">&nbsp;&nbsp;
+            <input type="reset" value="Clear" class="btn btn-danger">
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

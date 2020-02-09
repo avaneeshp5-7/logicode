@@ -25,10 +25,7 @@ export class RegisterComponent implements OnInit {
       contact: ['', [Validators.required,Validators.pattern('[0-9]*'), Validators.minLength(10),Validators.maxLength(10)]],
       Password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]],
       confirmPassword: ['', Validators.required]
-    }, {
-        validator: MustMatch('Password', 'confirmPassword')
-      
-    })
+    }, {validator: MustMatch('Password', 'confirmPassword')})
     // this.get_user();
   }
   get f() {

@@ -7,10 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthgourdService implements CanActivate {
 constructor(private router: Router) {}
-canActivate(
-  next: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot
-): Observable<boolean> | Promise<boolean> | boolean {
+canActivate(next: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
   if(localStorage.getItem('currentUser')) {
     return true;
   }else{

@@ -1,52 +1,49 @@
 <div class="container">
   <div class="row justify-content-center align-items-center">
-     <div class="col-md-6">
-        <div style="margin-top:80px">
-            <div  *ngIf="errmsg" class="errdive">{{errmsg}}</div><br>
-            <form [formGroup]="registerForm" (ngSubmit)="mySubmit()" class="formset">
-              <input type="text" class="form-control" formControlName="first_name"
-                [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="First Name">
-              <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
-              </div><br>
-              <input type="text" class="form-control" formControlName="middle_name"
-                [ngClass]="{'is-invalid':submitted && f.middle_name.errors}" placeholder="Middle Name">
-              <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
-                <div *ngIf="f.Email.errors.middle_name">Not a proper email address</div>
-              </div><br>
-              <input type="text" class="form-control" formControlName="last_name"
-                [ngClass]="{'is-invalid':submitted && f.last_name.errors}" placeholder="Last_name">
-              <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
-              </div><br>
-              <input type="email" class="form-control" formControlName="Email"
-                [ngClass]="{'is-invalid':submitted && f.Email.errors}" placeholder="email">
-              <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
-                <div *ngIf="f.Email.errors.email">Not a proper email address</div>
-              </div><br>
-              <input type="text" class="form-control" formControlName="contact"
-              [ngClass]="{'is-invalid':submitted && f.contact.errors}" placeholder="Contact">
-            <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
-              <div *ngIf="f.contact.errors.minlength">Minimum 10 digit</div>
-              <div *ngIf="f.contact.errors.pattern">Only number is allow</div>
-              <div *ngIf="f.contact.errors.maxlength">Maximum 10 digit</div>
-            </div><br>
-              <input type="password" class="form-control" formControlName="Password"
-                [ngClass]="{'is-invalid':submitted && f.Password.errors}" placeholder="password">
-              <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
-                <div *ngIf="f.Password.errors.minlength">Minimum 8 digit</div>
-                <div *ngIf="f.Password.errors.maxlength">Maxmum 16 digit</div>
-              </div>
-              <br>
-              <input type="password" class="form-control" formControlName="confirmPassword"
-                [ngClass]="{'is-invalid':submitted && f.confirmPassword.errors}" placeholder="Confirm password">
-              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                  <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-              </div>
-              <br>
-              <button type="submit" [disabled]="!registerForm.valid"  class="btn btn-primary">Submit</button><br>
-            </form><br>
+    <div class="col-md-5">
+      <div style="margin-top:80px;background-color: cadetblue;border-radius: 4px">
+        <div *ngIf="errmsg" class="errdive">{{errmsg}}</div><br>
+        <form [formGroup]="registerForm" (ngSubmit)="mySubmit()" class="formset">
+          <h4 style="margin: auto;color: rgb(234, 246, 247)">User Registration</h4>
+          <input type="text" class="form-control" formControlName="first_name"
+            [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="First Name">
+          <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
           </div>
-     </div>
-   </div>
+          <input type="text" class="form-control" formControlName="middle_name"
+            [ngClass]="{'is-invalid':submitted && f.middle_name.errors}" placeholder="Middle Name">
+          <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+            <!-- <div *ngIf="f.Email.errors.middle_name">Not a proper email address</div> -->
+          </div>
+          <input type="text" class="form-control" formControlName="last_name"
+            [ngClass]="{'is-invalid':submitted && f.last_name.errors}" placeholder="Last_name">
+          <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+          </div>
+          <input type="email" class="form-control" formControlName="Email"
+            [ngClass]="{'is-invalid':submitted && f.Email.errors}" placeholder="email">
+          <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+            <div *ngIf="f.Email.errors.email">Not a proper email address</div>
+          </div>
+          <input type="text" class="form-control" formControlName="contact"
+            [ngClass]="{'is-invalid':submitted && f.contact.errors}" placeholder="Contact">
+          <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+            <div *ngIf="f.contact.errors.minlength">Minimum 10 digit</div>
+            <div *ngIf="f.contact.errors.pattern">Only number is allow</div>
+            <div *ngIf="f.contact.errors.maxlength">Maximum 10 digit</div>
+          </div>
+          <input type="password" class="form-control" formControlName="Password"
+            [ngClass]="{'is-invalid':submitted && f.Password.errors}" placeholder="password">
+          <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+            <div *ngIf="f.Password.errors.minlength">Minimum 8 digit</div>
+            <div *ngIf="f.Password.errors.maxlength">Maxmum 16 digit</div>
+          </div>
+          <input type="password" class="form-control" formControlName="confirmPassword"
+            [ngClass]="{'is-invalid':submitted && f.confirmPassword.errors}" placeholder="Confirm password">
+          <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+          </div><br>
+          <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Submit</button><br>
+        </form><br>
+      </div>
+    </div>
+  </div>
 </div>
-
-

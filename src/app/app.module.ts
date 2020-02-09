@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -8,20 +9,35 @@ import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import {AuthgourdService} from "./authgourd.service";
 import { RegisterComponent } from './register/register.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
+import {ContactComponent} from '../app/modules/components/Contacts/contact';
+import {SearchComponent} from '../app/modules/components/SearchJob/search';
+import {NgSelectModule} from '@ng-select/ng-select';
+import { BannerComponent } from './banner/banner.component'
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 var rout=[
-  {path:'',component:UserLoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'profile',component:ProfileComponent,canActivate:[AuthgourdService]}
+  {path:'login',component:UserLoginComponent},
+  {path:'contact',component:ContactComponent},
+  {path:'search-new-job',component:SearchComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     UserLoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MenuComponent,
+    FooterComponent,
+    ContactComponent,
+    SearchComponent,
+    BannerComponent
   ],
   imports: [
-    BrowserModule,ReactiveFormsModule,FormsModule,RouterModule.forRoot(rout),HttpClientModule],
+    BrowserModule,ReactiveFormsModule,FormsModule,RouterModule.forRoot(rout),HttpClientModule,NgSelectModule,NgbModule
+    // ,FontAwesomeModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
