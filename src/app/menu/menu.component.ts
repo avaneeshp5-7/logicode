@@ -15,14 +15,13 @@ isLogOut:boolean;
     
     if(localStorage.getItem('currentUser')!=null){
       this.isLogOut=true;
-      this.isLog=false
+      this.isLog=false;
     }
     else{
       this.isLogOut=false;
-      this.isLog=true
+      this.isLog=true;   
     }
   }
-
   ngOnInit() {
   }
   logOut(){
@@ -30,6 +29,6 @@ isLogOut:boolean;
     window.location.href='/';
   }
   login(){
-    this._Router.navigateByUrl('/login')
+    this._Router.navigateByUrl('/login');
   }
 }
