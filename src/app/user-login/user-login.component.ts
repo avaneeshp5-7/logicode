@@ -13,7 +13,8 @@ export class UserLoginComponent implements OnInit {
   email:any;
   password:any;
   userinfo:any
-  constructor(private rout:Router,private service:UserServiceService) { }
+  constructor(private rout:Router,private service:UserServiceService) {
+   }
 
   ngOnInit() {
   }
@@ -26,7 +27,7 @@ export class UserLoginComponent implements OnInit {
       if(dt['success']==true){
         this.userinfo=dt['result'];
         localStorage.setItem('currentUser',JSON.stringify(this.userinfo));
-        this.rout.navigateByUrl('/profile');
+        window.location.href='/profile';
       }
       else{
         alert(dt['message'])
@@ -42,6 +43,7 @@ focus:any;
 focusMethod(){
  this.focus="Plz Enter Valid email"
 }
+
 gotoReg(){
   this.rout.navigateByUrl('/register');
 }

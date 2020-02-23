@@ -1,4 +1,4 @@
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -14,13 +14,16 @@ import { FooterComponent } from './footer/footer.component';
 import {ContactComponent} from '../app/modules/components/Contacts/contact';
 import {SearchComponent} from '../app/modules/components/SearchJob/search';
 import {NgSelectModule} from '@ng-select/ng-select';
-import { BannerComponent } from './banner/banner.component'
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { BannerComponent } from './banner/banner.component';
+import { DefaultComponent } from './default/default.component'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 var rout=[
+  {path:'',component:DefaultComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:UserLoginComponent},
   {path:'contact',component:ContactComponent},
-  {path:'search-new-job',component:SearchComponent}
+  {path:'search-new-job',component:SearchComponent},
+  {path:'profile',component:ProfileComponent},
 ]
 @NgModule({
   declarations: [
@@ -32,11 +35,18 @@ var rout=[
     FooterComponent,
     ContactComponent,
     SearchComponent,
-    BannerComponent
+    BannerComponent,
+    DefaultComponent
   ],
   imports: [
-    BrowserModule,ReactiveFormsModule,FormsModule,RouterModule.forRoot(rout),HttpClientModule,NgSelectModule,NgbModule
-    // ,FontAwesomeModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FontAwesomeModule,
+    // NgbModule,
+    RouterModule.forRoot(rout),
+    HttpClientModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

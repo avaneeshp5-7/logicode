@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../matchpassword';
 import { Router } from '@angular/router';
+import {faArrowAltCircleRight} from '@fortawesome/free-solid-svg-icons'
 import {UserServiceService} from '../user-service.service'
 @Component({
   selector: 'app-register',
@@ -9,6 +10,7 @@ import {UserServiceService} from '../user-service.service'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  faArrowAltCircleRight=faArrowAltCircleRight;
   submitted = false;
   user: any;
   uid: any;

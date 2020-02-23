@@ -32,23 +32,30 @@
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
               <li class="navitem">
-                <a class="navlink" href="#">About Us </a>
+                <a class="navlink" style="color: whitesmoke;cursor: pointer;">About Us </a>
               </li>
               <li class="navitem">
-                <a class="navlink" href="#">Services</a>
+                <a class="navlink" style="color: whitesmoke;cursor: pointer;">Services</a>
               </li>
               <li class="navitem">
-                <a class="navlink" href="#">Job Seekers</a>
+                <a class="navlink" style="color: whitesmoke;cursor: pointer;">Job Seekers</a>
               </li>
               <li class="navitem">
-                <a class="navlink" href="#">Join &nbsp;Us</a>
+                <a class="navlink" style="color: whitesmoke;cursor: pointer;">Join &nbsp;Us</a>
               </li>
               <li class="navitem">
-                <a class="navlink" href="#">Contact</a>
+                <a class="navlink" style="color: whitesmoke;cursor: pointer;">Contact</a>
               </li>
             </ul>
+            <form class="form-inline">
+              <ul class="navbar-nav">
+                <i *ngIf="isLog" class="navitem fa fa-user stlset"  title="Log In" (click)="login()"></i>&nbsp;&nbsp;&nbsp; 
+                <i *ngIf="isLogOut" class="navitem fa fa-sign-out stlset"  title="Log Out" (click)="logOut()"></i>&nbsp;&nbsp;&nbsp;
+              </ul>
+            </form>
           </div>
-        </nav>
+
+         </nav>
       </div>
     </div>
   </div>

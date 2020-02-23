@@ -6,6 +6,7 @@ rout.use(bodyparser.json());
 conn = mongojs("mongodb://logicode:logicode123@ds331735.mlab.com:31735/logicodes");
 rout.post("/login_url", (req, res) => {
     conn.user.find({ Email: req.body.Email }, (err, result) => {
+        console.log(result.length)
         if (result.length == 1) {
             res.send({
                 success: true,
